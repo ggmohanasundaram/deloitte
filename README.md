@@ -33,6 +33,7 @@ High Level Design
         1. Spring Boot
         2. Maven
         3. Java 8.
+        4. Spring JPA
 
 
    3. To achieve the user authentication and authorisation, Spring OAUTH 2.0 has been leveraged.
@@ -166,9 +167,20 @@ Simple extension of the API to support future resources such as orders and produ
 
  The Application can be extended for Orders and Products as follows,
  
-  Step 1. Configure endpoints in RAML as follows,
+  Step 1. Configure endpoints in RAML as follows.
+  
          /Orders:
+            get:
+              {id}
+            Post: 
+            Put:
          /Products:
+            get:
+              {id}:
+            Post:
+            Put:
+         
+         
   Step 2 : Generate the REST Controller files and need to implement the required methods.
       
     
