@@ -132,7 +132,7 @@ A mobile application used by customer service representatives that uses the API 
 
                 {"access_token":"704bac46-a831-4dfa-9b32-540531c24975","token_type":"bearer","expires_in":3599,"scope":"read write"}
 
-   3 : Internal customers can create and update the customers:
+   Step 3 : Internal customers can create and update the customers:
 
                         Sample Request :
 
@@ -159,6 +159,19 @@ A mobile application used by customer service representatives that uses the API 
                         Location: /api/customers/50
                         Content-Length: 0
                         Date: Sun, 29 Oct 2017 02:53:13 GMT
+
+Use Case3:  
+
+Simple extension of the API to support future resources such as orders and products
+
+ The Application can be extended for Orders and Products as follows,
+ 
+  Step 1. Configure endpoints in RAML as follows,
+         /Orders:
+         /Products:
+  Step 2 : Generate the REST Controller files and need to implement the required methods.
+      
+    
 
 
 
