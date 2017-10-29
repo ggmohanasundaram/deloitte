@@ -52,11 +52,13 @@ High Level Design
 
 Use Cases
 ---------
-UseCase 1: A consumer may periodically (every 5 minutes) consume the API to enable it (the consumer) to maintain a copy of the provider API's customers (the API represents the system of record).
+UseCase 1: 
 
-      Step 1 : The external customers will be given client id as "deloitte.external".
+A consumer may periodically (every 5 minutes) consume the API to enable it (the consumer) to maintain a copy of the provider API's customers (the API represents the system of record).
 
-      Step 2 : External customers should get the access token prior to get the customer list.
+  Step 1 : The external customers will be given client id as "deloitte.external".
+
+  Step 2 : External customers should get the access token prior to get the customer list.
 
                Sample Request for access Token:
                     curl -X POST --user 'deloitte.external:secret' -d         'grant_type=password&username=mobileapp@example.com&password=password' localhost:8080/oauth/token
@@ -64,7 +66,7 @@ UseCase 1: A consumer may periodically (every 5 minutes) consume the API to enab
                Sample Response:
                     {"access_token":"a59025bc-cf24-400c-8db9-a9e3b5dfec5f","token_type":"bearer","refresh_token":"94be160d-1ed1-4d02-9054-b834af64e1cc","expires_in":3599,"scope":"read"}
 
-      Step 3: Get the Customer List.
+   Step 3: Get the Customer List.
 
                Sample Get Customer Request:
                   curl -i -H "Accept: application/json" -H "Authorization: Bearer $TOKEN" -X GET http://localhost:8080/api/customers/
@@ -86,10 +88,10 @@ UseCase 1: A consumer may periodically (every 5 minutes) consume the API to enab
 
    High Lights
    -----------
-      1. Since the external customers are accessing the API perodically, I have configured the expiration time limit                  for access token. The Client should regenerate the token for every 5 minutes.
-      2. External customers are limited to access only get customer's list using
+   1. Since the external customers are accessing the API perodically, I have configured the expiration time limit                  for access token. The Client should regenerate the token for every 5 minutes.
+   2. External customers are limited to access only get customer's list using
          @PreAuthorize("#oauth2.hasScope('read')"). To access other methods, the client id "deloitte.external" should have            write premission.
-      3. The API will through 403 Forbidden error if client try to access other urls like POST, PUT, DELETE.
+   3. The API will through 403 Forbidden error if client try to access other urls like POST, PUT, DELETE.
 
 
                        curl -i -H "Accept: application/json" -H "Authorization: Bearer $TOKEN" -X POST -H 'Content-Type: application/json' -d '{ "firstName": "Mohan", "lastName": "G", "address":{
@@ -114,11 +116,13 @@ UseCase 1: A consumer may periodically (every 5 minutes) consume the API to enab
                         {"timestamp":1509244632053,"status":403,"error":"Forbidden","exception":"org.springframework.security.access.AccessDeniedException","message":"Access Denied","path":"/api/customers"}
 
 
-Use Case2:   A mobile application used by customer service representatives that uses the API to retrieve and update the customers details.
+Use Case2:  
 
-       Step 1 : The external customers will be given client id as "deloitte.internal".
+A mobile application used by customer service representatives that uses the API to retrieve and update the customers details.
 
-       Step 2 : Internal customers should get the access token prior to get the customer list.
+   Step 1 : The external customers will be given client id as "deloitte.internal".
+
+   Step 2 : Internal customers should get the access token prior to get the customer list.
 
                 Sample Request:
 
@@ -128,7 +132,7 @@ Use Case2:   A mobile application used by customer service representatives that 
 
                 {"access_token":"704bac46-a831-4dfa-9b32-540531c24975","token_type":"bearer","expires_in":3599,"scope":"read write"}
 
-            3 : Internal customers can create and update the customers:
+   3 : Internal customers can create and update the customers:
 
                         Sample Request :
 
