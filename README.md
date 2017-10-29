@@ -52,8 +52,7 @@ High Level Design
 
 Use Cases
 ---------
-
-   1. A consumer may periodically (every 5 minutes) consume the API to enable it (the consumer) to maintain a copy of the provider API's customers (the API represents the system of record).
+UseCase 1: A consumer may periodically (every 5 minutes) consume the API to enable it (the consumer) to maintain a copy of the provider API's customers (the API represents the system of record).
 
       Step 1 : The external customers will be given client id as "deloitte.external".
 
@@ -115,7 +114,7 @@ Use Cases
                         {"timestamp":1509244632053,"status":403,"error":"Forbidden","exception":"org.springframework.security.access.AccessDeniedException","message":"Access Denied","path":"/api/customers"}
 
 
-    2.  A mobile application used by customer service representatives that uses the API to retrieve and update the customers details.
+Use Case2:   A mobile application used by customer service representatives that uses the API to retrieve and update the customers details.
 
        Step 1 : The external customers will be given client id as "deloitte.internal".
 
