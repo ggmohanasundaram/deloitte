@@ -185,7 +185,20 @@ Simple extension of the API to support future resources such as orders and produ
       
     
 
+Mule Soft Deployment
+--------------------
+I have created a REST API endpoing using the RAML file. I have followed the below setps to implement the API in Mule soft.
 
+  1. Using Muse Esb Design Centre I have created a API using RAML
+  2. Using Anypoint Studio I have downloaded the API project and tested the API.
+ 
+ Please find the below screen shots -
+      Anypoint_API_IMPLEMENTATION.png
+      MULEESB-DesignCentre.png
+  
+  TODO
+  ----
+  1. I am exploring mule esb to deploy my spring boot application to server the client requests.
 
 
 
